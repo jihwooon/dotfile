@@ -1,0 +1,24 @@
+[[snippets]]
+  description = "cached git"
+  command = "git rm -r --cached ."
+  output = ""
+
+[[snippets]]
+  description = "docker run MYSQL"
+  command = "docker run --name {{docker-name}} -e SPRING_DATASOURCE_NAME=root -e MYSQL_ROOT_PASSWORD=root1234 -e MYSQL_DATABASE=tuning -d -p 3301:3306 mysql:8 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+  output = ""
+
+[[snippets]]
+  description = "gitHub Issue review"
+  command = "gh issue list | fzf --header \"All issue\" --preview 'gh issue view {1}' --preview-window down | awk '{print $1}'"
+  output = ""
+
+[[snippets]]
+  description = "docker - mariadb"
+  command = "docker run --name mariadb-container -v /Users/jihwooon/Documents/Database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root1234 -e MYSQL_DATABASE=shop -d -p 3306:3306 mariadb:10.8.3 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+  output = ""
+
+[[snippets]]
+  description = "github Pull Request view"
+  command = "gh pr list --json number,title,author --limit 10 | jq -r '.[] | "\u001b[31m#\(.number)\u001b[37m \(.title) \u001b[1;32m@\(.author.login)\u001b[0m"' | fzf --preview 'gh pr view {1}' --ansi""
+  output = ""
