@@ -1,0 +1,80 @@
+{
+  "Print to console": {
+    "prefix": "_log",
+    "body": [
+      "console.log($1);",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "React Functional Component": {
+    "prefix": "_rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "\t$2",
+      "}",
+      "",
+      "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({$3}) => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "Creates a React Functional Component with TypeScript props"
+  },
+  "useState": {
+    "prefix": "_ust",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:type}>(${3:initialValue});"
+    ],
+    "description": "React useState hook"
+  },
+  "useEffect": {
+    "prefix": "_uef",
+    "body": [
+      "useEffect(() => {",
+      "\t${1}",
+      "\treturn () => {",
+      "\t\t${2}",
+      "\t};",
+      "}, [${3}]);"
+    ],
+    "description": "React useEffect hook"
+  },
+  "react_components": {
+    "prefix": "_comp",
+    "body": "import styled from \"styled-components\";\n\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<${TM_FILENAME_BASE}Style>\n\t\t\t<h1>${TM_FILENAME_BASE}</h1>\n\t\t</${TM_FILENAME_BASE}Style>\n\t);\n}\n\nconst ${TM_FILENAME_BASE}Style = styled.div``;\n\nexport default ${TM_FILENAME_BASE};\n",
+    "description": "타입스크립트 리액트 컴포넌트"
+  },
+  "theme-var": {
+    "prefix": "_theme-var",
+    "body": "color: ${({ theme }) => theme.color.$1};",
+    "description": "테마 컬러"
+  },
+  "Props": {
+    "prefix": "_props",
+    "body": "interface Props {\n  $1: $2;\n}",
+    "description": "interface Props 생성"
+  },
+  "Button": {
+    "prefix": "_button",
+    "body": "<Button size=\"$1\" scheme=\"$2\"></Button>",
+    "description": "버튼 컴포넌트"
+  },
+  "_flex": {
+    "prefix": "_flex",
+    "body": "  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: $1px;",
+    "description": "css flex"
+  },
+  "_default": {
+    "prefix": "_default",
+    "body": "export default function $1() {\n  return <h1>$1</h1>\n}",
+    "description": "\"default Function\""
+  }
+}
