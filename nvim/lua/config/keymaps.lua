@@ -56,6 +56,7 @@ keymap.set("n", "<C-S-j>", "<C-w>-")
 
 -- LSP(Language Server Portoco)
 keymap.set('n', '<s-b>', vim.lsp.buf.definition, { desc = "Go to Definition" })
+keymap.set('n', '<s-d>', vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 keymap.set('n', '<s-k>', vim.lsp.buf.hover, { desc = "show code hover" })
 keymap.set('n', '<s-r>', vim.lsp.buf.references, { desc = "show refrence" })
 keymap.set('n', '<s-l>', function() vim.lsp.buf.format { async = true } end)
