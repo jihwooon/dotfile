@@ -29,11 +29,11 @@ keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
 -- File explorer with NvimTree
-keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
-keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
+ -- keymap.set("n", "<Leader>f", ":NvimTreeFindFile<Return>", opts)
+ -- keymap.set("n", "<Leader>t", ":NvimTreeToggle<Return>", opts)
 
 -- Tabs
-keymap.set("n", "te", ":tabedit")
+keymap.set("n", "<Leader>t", ":tabedit<Return>")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 keymap.set("n", "tw", ":tabclose<Return>", opts)
@@ -66,7 +66,7 @@ keymap.set('n', '<s-Enter>', vim.lsp.buf.code_action, { desc = "code action" })
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- NeoAI
-keymap.set("n", "<Leader>at", ":NeoAIToggle<Return>", opts)
+-- keymap.set("n", "<Leader>at", ":NeoAIToggle<Return>", opts)
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
