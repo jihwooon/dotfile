@@ -1,6 +1,3 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
-
 local has = function(x)
   return vim.fn.has(x) == 1
 end
@@ -15,3 +12,14 @@ if is_win then
   require('config.windows')
 end
 
+if vim.loader then
+  vim.loader.enable()
+end
+
+_G.dd = function(...)
+  require("util.debug").dump(...)
+end
+vim.print = _G.dd
+
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
