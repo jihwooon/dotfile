@@ -1,19 +1,4 @@
 return {
-  -- Create annotations with one keybind, and jump your cursor in the inserted annotation
-  {
-    "danymat/neogen",
-    keys = {
-      {
-        ";cc",
-        function()
-          require("neogen").generate({})
-        end,
-        desc = "Neogen Comment",
-      },
-    },
-    opts = { snippet_engine = "luasnip" },
-  },
-
   -- Refactoring tool
   {
     "ThePrimeagen/refactoring.nvim",
