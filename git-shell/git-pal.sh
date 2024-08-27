@@ -95,10 +95,6 @@ do
       create_branch=$(gum input --placeholder "Generate")
       git switch -c "$create_branch"
       ;;
-#    copy)
-#      git diff --staged | pbcopy
-#      echo "$(successful_completion_text)"
-#      ;;
     reset)
       git reset --soft HEAD\^
       ;;
@@ -107,16 +103,9 @@ do
       git diff --staged | pbcopy 
       echo "$(successful_completion_text)"
       ;;
-#    status)
-#      git status
-#      echo "$(successful_completion_text)"
-#      ;;
     push)
       git push origin $(git rev-parse --abbrev-ref HEAD) && echo "$(successful_completion_text)"
       ;;
-#    history)
-#      git log --color --graph --abbrev-commit --pretty=format:'%Cred%h %Creset-%C(yellow)%d %Creset%s %Cgreen(%cr)%C(bold blue)<%an>'
-#      ;;
     rebase)
       git fetch origin
       git rebase "origin/main" && echo "$(successful_completion_text)"
@@ -134,6 +123,11 @@ do
       fi
       echo "$(successful_completion_text)"
       ;;
+    commit-auto)
+      git add .
+      git commit
+      echo "$(successful_completion_text)"
+      ;; 
     commit)
       if [ -z "$(git status -s -uno | grep -v '^ ' | awk '{print $2}')" ]; then
         gum confirm "Stage all?" && git status --short | cut -c 4- | gum choose --no-limit | xargs git add
