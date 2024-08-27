@@ -86,7 +86,7 @@ echo ""
 echo "Current $(git_color_text "Branch"): $(branch_colro_text "$branches")"
 echo ""
 echo "Choose a $(git_color_text "command"):"
-command=$(gum choose --cursor.foreground="$GIT_COLOR" add commit-auto commit push rebase clean-branch repush branch reset restore cache exit)
+command=$(gum choose --cursor.foreground="$GIT_COLOR" add commit-auto commit push rebase clean-branch repush branch reset restore prune-origin cache exit)
 
 echo $branches | tr " " "\n" | while read -r branch
 do
@@ -94,6 +94,9 @@ do
     branch)
       create_branch=$(gum input --placeholder "Generate")
       git switch -c "$create_branch"
+      ;;
+    prune-origin)
+      git remote prune origin
       ;;
     reset)
       git reset --soft HEAD\^
